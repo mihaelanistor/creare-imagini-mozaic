@@ -1,0 +1,17 @@
+```````````function params = calculeazaDimensiuniMozaic(params)
+%calculeaza dimensiunile mozaicului
+%obtine si imaginea de referinta redimensionata avand aceleasi dimensiuni
+%ca mozaicul
+
+%completati codul Matlab
+...
+imaginiPiese=dir([params.numeDirector '/*.' params.tipImagine]);
+ primaPiesa = imread([params.numeDirector '/' imaginiPiese(1).name]);
+[H,W,C] = size(primaPiesa);
+[h,w,c] = size(params.imgReferinta);
+
+%calculeaza automat numarul de piese pe verticala
+params.numarPieseMozaicVerticala = (h*W*params.numarPieseMozaicOrizontala)/(H*w);
+
+%calculeaza si imaginea de referinta redimensionata avand aceleasi dimensiuni ca mozaicul
+params.imgReferintaRedimensionata = imresize(params.imgReferinta,
